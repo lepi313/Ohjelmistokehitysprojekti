@@ -4,8 +4,8 @@
 
 ## Ryhmä Mayhem
 
-# Jarno lehtinen
-# Jaana Pusa
-# Maarit Ylikulju
+### Jarno lehtinen
+### Jaana Pusa
+### Maarit Ylikulju
 
 -----------------------------
