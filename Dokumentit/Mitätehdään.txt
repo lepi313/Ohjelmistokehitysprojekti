@@ -1,7 +1,3 @@
-# dokumentit tänne kansioon
-
-----------------------------
-
 Laskutus
 
 - WPF sovellus
