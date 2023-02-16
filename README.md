@@ -10,5 +10,8 @@
 
 -----------------------------
 
-Tähän ehkä linkit?
+### Linkit
+
+[Toimeksiannon kuvaus](https://book.sovelluskontti.com/toimeksiannot-2020-01/laskutus)
+
 
