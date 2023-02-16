@@ -25,6 +25,17 @@ Lisäksi asiakkaan mielestä huomioitavaa on, että palvelutaso voi muuttua kesk
 
 # Tehtävät
 
+Vaatimusmäärittely
+
+vesiputousmalli
+
+
+
+
+Sovelluksen tekeminen
+
+
+
 Tilaaja:
 
 - Tulevat maksut nähtäviksi
@@ -45,6 +56,18 @@ Palvelutaso:
 laskutus
 - 6kk alennus 10%
 - 12 kk alennus 18 %
+
+- Onko tässä mitään järkeä mitä luonnostelin toimeksiannosta.  Ymmärsinkö oikein tilaajan ja asiakkaan eron vaikka käytettiin asiakas nimeä koko ajan.
+- Jos tehdään WPF niin helpohko sovellus palvelutason vai asiakkaan(tilaajan) mukaan? jonkun muun mukaan.
+
+Tilaajan näkymä
+
+hinnat plus alennukset
+
+maksut palvelutasojen mukaan
+Eräpäivät
+
+button palvelutasot, asiakkaat, tulevat maksut
 
 - 
 
