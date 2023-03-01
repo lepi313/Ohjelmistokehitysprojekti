@@ -7,14 +7,14 @@
         mc:Ignorable="d"
         Title="CustomerWindow" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="textBoxCustomerName" HorizontalAlignment="Left" Height="30" Margin="27,39,0,0" TextWrapping="Wrap" Text="Asiakkaan nimi" VerticalAlignment="Top" Width="175"/>
+        <TextBox x:Name="textBoxCustomerName" HorizontalAlignment="Left" Height="30" Margin="27,39,0,0" TextWrapping="Wrap" Text="Asiakkaan nimi" VerticalAlignment="Top" Width="175" GotFocus="textBoxCustomerName_GotFocus"/>
         <Label x:Name="labelCustomerInfo" Content="Asiakkaan tiedot" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxCustomerAddress" HorizontalAlignment="Left" Height="30" Margin="27,74,0,0" TextWrapping="Wrap" Text="Katuosoite" VerticalAlignment="Top" Width="175"/>
-        <TextBox x:Name="textBoxCustomerZipCode" HorizontalAlignment="Left" Height="30" Margin="27,109,0,0" TextWrapping="Wrap" Text="Postinumero" VerticalAlignment="Top" Width="175"/>
-        <TextBox x:Name="textBoxCustomerCity" HorizontalAlignment="Left" Height="30" Margin="27,144,0,0" TextWrapping="Wrap" Text="Kaupunki" VerticalAlignment="Top" Width="175"/>
-        <TextBox x:Name="textBoxCustomerEmail" HorizontalAlignment="Left" Height="30" Margin="27,179,0,0" TextWrapping="Wrap" Text="Sähköposti" VerticalAlignment="Top" Width="175"/>
-        <DatePicker x:Name="datePickerBillingDate" HorizontalAlignment="Left" Height="30" Margin="27,239,0,0" VerticalAlignment="Top" Width="175" FirstDayOfWeek="Monday" Text="Valitse päivä"/>
-        <Label x:Name="labelBillingDate" Content="Laskutuspäivä" HorizontalAlignment="Left" Margin="27,213,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,1.13"/>
+        <TextBox x:Name="textBoxCustomerAddress" HorizontalAlignment="Left" Height="30" Margin="27,74,0,0" TextWrapping="Wrap" Text="Katuosoite" VerticalAlignment="Top" Width="175" GotFocus="textBoxCustomerAddress_GotFocus"/>
+        <TextBox x:Name="textBoxCustomerZipCode" HorizontalAlignment="Left" Height="30" Margin="27,109,0,0" TextWrapping="Wrap" Text="Postinumero" VerticalAlignment="Top" Width="175" MouseEnter="textBoxCustomerZipCode_MouseEnter"/>
+        <TextBox x:Name="textBoxCustomerCity" HorizontalAlignment="Left" Height="30" Margin="27,144,0,0" TextWrapping="Wrap" Text="Kaupunki" VerticalAlignment="Top" Width="175" GotFocus="textBoxCustomerCity_GotFocus"/>
+        <TextBox x:Name="textBoxCustomerEmail" HorizontalAlignment="Left" Height="30" Margin="27,179,0,0" TextWrapping="Wrap" Text="Sähköposti" VerticalAlignment="Top" Width="175" GotFocus="textBoxCustomerEmail_GotFocus"/>
+        <DatePicker x:Name="datePickerBillingDate" HorizontalAlignment="Left" Height="30" Margin="27,240,0,0" VerticalAlignment="Top" Width="175" FirstDayOfWeek="Monday" Text="Valitse päivä"/>
+        <Label x:Name="labelBillingDate" Content="Laskutuspäivä" HorizontalAlignment="Left" Margin="27,214,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,1.13"/>
         <ComboBox x:Name="comboBoxServiceLevel" HorizontalAlignment="Left" Height="30" Margin="27,301,0,0" VerticalAlignment="Top" Width="175"/>
         <Label x:Name="labelComboServiceLevel" Content="Palvelutaso" HorizontalAlignment="Left" Margin="27,275,0,0" VerticalAlignment="Top"/>
         <Button x:Name="buttonSave" Content="Tallenna" HorizontalAlignment="Left" Height="30" Margin="27,349,0,0" VerticalAlignment="Top" Width="80" Click="buttonSave_Click"/>
@@ -23,6 +23,8 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Nimi" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Postinro" DisplayMemberBinding="{Binding ZipCode}"/>
+                    <GridViewColumn Header="Kaupunki" DisplayMemberBinding="{Binding City}"/>
                 </GridView>
             </ListView.View>
         </ListView>

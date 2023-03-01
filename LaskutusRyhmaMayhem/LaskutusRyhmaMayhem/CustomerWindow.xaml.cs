@@ -28,13 +28,16 @@ namespace LaskutusRyhmaMayhem
         {
             InitializeComponent();
             listViewCustomers.ItemsSource = customerList;
+            this.textBoxCustomerZipCode.SelectAll();
         }
+
+
 
         private void buttonCancel_Click(object sender, RoutedEventArgs e)
         {
             customerWindow.Close();
         }
-
+        
         private void buttonSave_Click(object sender, RoutedEventArgs e)
         {
             var customername = textBoxCustomerName.Text;
@@ -48,6 +51,30 @@ namespace LaskutusRyhmaMayhem
             customerList.Add(customer);
         }
 
+        private void textBoxCustomerAddress_GotFocus(object sender, RoutedEventArgs e)
+        {
+            this.textBoxCustomerAddress.SelectAll();
+        }
+
+        private void textBoxCustomerZipCode_MouseEnter(object sender, MouseEventArgs e)
+        {
+            this.textBoxCustomerZipCode.SelectAll();
+        }
+
+        private void textBoxCustomerName_GotFocus(object sender, RoutedEventArgs e)
+        {
+            this.textBoxCustomerName.SelectAll();
+        }
+
+        private void textBoxCustomerCity_GotFocus(object sender, RoutedEventArgs e)
+        {
+            this.textBoxCustomerCity.SelectAll();
+        }
+
+        private void textBoxCustomerEmail_GotFocus(object sender, RoutedEventArgs e)
+        {
+            this.textBoxCustomerEmail.SelectAll();
+        }
 
     }
 }
