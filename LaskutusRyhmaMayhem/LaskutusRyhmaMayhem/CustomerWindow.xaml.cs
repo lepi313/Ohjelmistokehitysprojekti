@@ -23,5 +23,12 @@ namespace LaskutusRyhmaMayhem
         {
             InitializeComponent();
         }
+
+        private void buttonCancel_Click(object sender, RoutedEventArgs e)
+        {
+            customerWindow.Close();
+        }
+
+
     }
 }

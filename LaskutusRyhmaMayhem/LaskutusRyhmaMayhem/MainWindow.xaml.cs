@@ -24,5 +24,11 @@ namespace LaskutusRyhmaMayhem
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CustomerWindow addCustomer = new CustomerWindow();
+            addCustomer.ShowDialog();
+        }
     }
 }
