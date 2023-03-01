@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="Palvelutasot" Content="Palvelutasot" HorizontalAlignment="Left" Margin="203,155,0,0" VerticalAlignment="Top" Click="palvelutasot_Click"/>
-        <Button x:Name="Maksut" Content="Bills" HorizontalAlignment="Left" Margin="237,240,0,0" VerticalAlignment="Top" Click="Maksut_Click_1"/>
+        <Button x:Name="Palvelutasot" Content="Palvelutasot" HorizontalAlignment="Left" Margin="91,155,0,0" VerticalAlignment="Top" Height="31" Width="106" Click="palvelutasot_Click"/>
+        <Button x:Name="Maksut" Content="Maksut" HorizontalAlignment="Left" Margin="91,240,0,0" VerticalAlignment="Top"  Height="31" Width="106" Click="Maksut_Click_1"/>
         <Button x:Name="buttonAddCustomer" Content="Lisää Asiakas" HorizontalAlignment="Left" Margin="91,68,0,0" VerticalAlignment="Top" Height="31" Width="106" Click="buttonAddCustomer_Click"/>
     </Grid>
     

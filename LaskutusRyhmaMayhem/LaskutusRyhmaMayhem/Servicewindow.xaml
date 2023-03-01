@@ -6,12 +6,27 @@
         xmlns:local="clr-namespace:LaskutusRyhmaMayhem"
         mc:Ignorable="d"
         Title="ServiceView" Height="450" Width="800">
+  
     <Grid>
         <Label Content="Service levels" HorizontalAlignment="Left" Margin="129,90,0,0" VerticalAlignment="Top"/>
-        <Label Content="Monthly Price" HorizontalAlignment="Left" Margin="283,90,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="467,103,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="204" Height="167"/>
-
+        <Label Content="Monthly Price" HorizontalAlignment="Left" Margin="243,90,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="467,90,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="204" Height="33"/>
+        <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Margin="400,354,0,0" VerticalAlignment="Top" Click="Save_Click"/>
+        <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="496,354,0,0" VerticalAlignment="Top" Click="Cancel_Click"/>
+        <ToolBar Margin="124,143,566,263" >
+            <Menu>
+                <MenuItem Header="ServiceLevels">
+                    <MenuItem x:Name="Basic" Header="_Basic" Click="Basic_Click"/>
+                    <Separator/>
+                    <MenuItem x:Name="Pro" Header="_Pro" Click="Pro_Click"/>
+                    <Separator />
+                    <MenuItem x:Name="Enterprise" Header="_Enterprise" Click="Enterprise_Click"/>
+                    <MenuItem x:Name="FreeTrial" Header="_Freetrial" Click="FreeTrial_Click"/>
+                </MenuItem>
+            </Menu>
+        </ToolBar>
 
 
     </Grid>
+   
 </Window>

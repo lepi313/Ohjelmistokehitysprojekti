@@ -23,5 +23,41 @@ namespace LaskutusRyhmaMayhem
         {
             InitializeComponent();
         }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+       
+
+      
+
+        private void Enterprise_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void FreeTrial_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Pro_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Basic_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
-}
+    }
+
+

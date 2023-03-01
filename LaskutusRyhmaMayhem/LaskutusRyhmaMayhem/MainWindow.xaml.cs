@@ -27,7 +27,8 @@ namespace LaskutusRyhmaMayhem
 
         private void palvelutasot_Click(object sender, RoutedEventArgs e)
         {
-
+            Servicewindow addService = new Servicewindow();
+            addService.Show();
         }
         private void Maksut_Click_1(object sender, RoutedEventArgs e)
         {
