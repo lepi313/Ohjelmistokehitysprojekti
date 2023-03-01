@@ -25,24 +25,19 @@ namespace LaskutusRyhmaMayhem
             InitializeComponent();
         }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
         private void palvelutasot_Click(object sender, RoutedEventArgs e)
         {
 
         }
         private void Maksut_Click_1(object sender, RoutedEventArgs e)
         {
+        }
 
-=======
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void buttonAddCustomer_Click(object sender, RoutedEventArgs e)
         {
             CustomerWindow addCustomer = new CustomerWindow();
             addCustomer.ShowDialog();
->>>>>>> origin/main
         }
->>>>>>> serviceview
     }
 }
 
