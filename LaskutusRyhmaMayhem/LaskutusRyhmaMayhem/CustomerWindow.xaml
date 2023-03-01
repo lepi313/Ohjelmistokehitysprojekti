@@ -13,12 +13,19 @@
         <TextBox x:Name="textBoxCustomerZipCode" HorizontalAlignment="Left" Height="30" Margin="27,109,0,0" TextWrapping="Wrap" Text="Postinumero" VerticalAlignment="Top" Width="175"/>
         <TextBox x:Name="textBoxCustomerCity" HorizontalAlignment="Left" Height="30" Margin="27,144,0,0" TextWrapping="Wrap" Text="Kaupunki" VerticalAlignment="Top" Width="175"/>
         <TextBox x:Name="textBoxCustomerEmail" HorizontalAlignment="Left" Height="30" Margin="27,179,0,0" TextWrapping="Wrap" Text="Sähköposti" VerticalAlignment="Top" Width="175"/>
-        <DatePicker x:Name="datePickerBillingDate" HorizontalAlignment="Left" Height="30" Margin="27,239,0,0" VerticalAlignment="Top" Width="175" FirstDayOfWeek="Monday"/>
+        <DatePicker x:Name="datePickerBillingDate" HorizontalAlignment="Left" Height="30" Margin="27,239,0,0" VerticalAlignment="Top" Width="175" FirstDayOfWeek="Monday" Text="Valitse päivä"/>
         <Label x:Name="labelBillingDate" Content="Laskutuspäivä" HorizontalAlignment="Left" Margin="27,213,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.051,1.13"/>
         <ComboBox x:Name="comboBoxServiceLevel" HorizontalAlignment="Left" Height="30" Margin="27,301,0,0" VerticalAlignment="Top" Width="175"/>
         <Label x:Name="labelComboServiceLevel" Content="Palvelutaso" HorizontalAlignment="Left" Margin="27,275,0,0" VerticalAlignment="Top"/>
         <Button x:Name="buttonSave" Content="Tallenna" HorizontalAlignment="Left" Height="30" Margin="27,349,0,0" VerticalAlignment="Top" Width="80" Click="buttonSave_Click"/>
         <Button x:Name="buttonCancel" Content="Peruuta" HorizontalAlignment="Left" Height="30" Margin="122,349,0,0" VerticalAlignment="Top" Width="80" Click="buttonCancel_Click"/>
+        <ListView x:Name="listViewCustomers" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="514,0,0,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nimi" DisplayMemberBinding="{Binding Name}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Window>

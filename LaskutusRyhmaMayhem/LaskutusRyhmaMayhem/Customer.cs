@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,15 +14,16 @@ namespace LaskutusRyhmaMayhem
         public string ZipCode { get; set; }
         public string City { get; set; }
         public string Email { get; set; }
-        public DateTime BillingDate { get; set; }
+        public DateTime? FirstBillingDate { get; set; }
 
-        public Customer(string name, string address, string zipcode, string city, string email, DateTime billingdate) 
+        public Customer(string name, string address, string zipcode, string city, string email, DateTime? firstbillingdate) 
         {
             Name= name;
             Address= address;   
             ZipCode= zipcode;
             City= city;
             Email= email;
+            FirstBillingDate = firstbillingdate;
         }
 
     }
