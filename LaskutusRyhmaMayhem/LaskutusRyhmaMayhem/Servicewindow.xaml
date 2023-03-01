@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="ServiceView" Height="450" Width="800">
     <Grid>
-        
+        <Label Content="Service levels" HorizontalAlignment="Left" Margin="129,90,0,0" VerticalAlignment="Top"/>
+        <Label Content="Monthly Price" HorizontalAlignment="Left" Margin="283,90,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Margin="467,103,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="204" Height="167"/>
+
+
+
     </Grid>
 </Window>
