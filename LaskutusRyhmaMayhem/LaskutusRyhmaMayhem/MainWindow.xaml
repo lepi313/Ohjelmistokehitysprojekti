@@ -6,9 +6,13 @@
         xmlns:local="clr-namespace:LaskutusRyhmaMayhem"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+<<<<<<< HEAD
     <Grid>
         <Button x:Name="Palvelutasot" Content="Palvelutasot" HorizontalAlignment="Left" Margin="203,155,0,0" VerticalAlignment="Top" Click="palvelutasot_Click"/>
         <Button x:Name="Maksut" Content="Bills" HorizontalAlignment="Left" Margin="237,240,0,0" VerticalAlignment="Top" Click="Maksut_Click_1"/>
         <StackPanel/>
     </Grid>
+=======
+    <Grid/>
+>>>>>>> origin/main
 </Window>

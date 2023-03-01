@@ -25,6 +25,7 @@ namespace LaskutusRyhmaMayhem
             InitializeComponent();
         }
 
+<<<<<<< HEAD
         private void palvelutasot_Click(object sender, RoutedEventArgs e)
         {
 
@@ -32,6 +33,12 @@ namespace LaskutusRyhmaMayhem
         private void Maksut_Click_1(object sender, RoutedEventArgs e)
         {
 
+=======
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CustomerWindow addCustomer = new CustomerWindow();
+            addCustomer.ShowDialog();
+>>>>>>> origin/main
         }
     }
 }
