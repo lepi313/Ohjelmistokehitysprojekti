@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,17 +61,16 @@ namespace LaskutusRyhmaMayhem
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (combobox.SelectedItem != null)
-            {
-                //ComboBoxItem cbi1 = (ComboBoxItem)(sender as ComboBox).SelectedItem;  
-                ComboBoxItem cbi = (ComboBoxItem)combobox.SelectedItem;
-                string v = cbi.Content.ToString();
-            }
+            textbox.Text = combobox.SelectedItem.ToString();
         }
 
-        private void ComboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
+
+
+    private void ComboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            textBox1.Text = ComboBox1.SelectedItem.ToString();
+            
         }
     }
     }
