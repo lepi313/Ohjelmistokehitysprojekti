@@ -10,7 +10,7 @@
         <TextBox x:Name="textBoxCustomerName" HorizontalAlignment="Left" Height="30" Margin="27,39,0,0" TextWrapping="Wrap" Text="Asiakkaan nimi" VerticalAlignment="Top" Width="175" GotFocus="textBoxCustomerName_GotFocus"/>
         <Label x:Name="labelCustomerInfo" Content="Asiakkaan tiedot" HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="textBoxCustomerAddress" HorizontalAlignment="Left" Height="30" Margin="27,74,0,0" TextWrapping="Wrap" Text="Katuosoite" VerticalAlignment="Top" Width="175" GotFocus="textBoxCustomerAddress_GotFocus"/>
-        <TextBox x:Name="textBoxCustomerZipCode" HorizontalAlignment="Left" Height="30" Margin="27,109,0,0" TextWrapping="Wrap" Text="Postinumero" VerticalAlignment="Top" Width="175" MouseEnter="textBoxCustomerZipCode_MouseEnter"/>
+        <TextBox x:Name="textBoxCustomerZipCode" HorizontalAlignment="Left" Height="30" Margin="27,109,0,0" TextWrapping="Wrap" Text="Postinumero" VerticalAlignment="Top" Width="175" GotFocus="textBoxCustomerZipCode_GotFocus_1"/>
         <TextBox x:Name="textBoxCustomerCity" HorizontalAlignment="Left" Height="30" Margin="27,144,0,0" TextWrapping="Wrap" Text="Kaupunki" VerticalAlignment="Top" Width="175" GotFocus="textBoxCustomerCity_GotFocus"/>
         <TextBox x:Name="textBoxCustomerEmail" HorizontalAlignment="Left" Height="30" Margin="27,179,0,0" TextWrapping="Wrap" Text="Sähköposti" VerticalAlignment="Top" Width="175" GotFocus="textBoxCustomerEmail_GotFocus"/>
         <DatePicker x:Name="datePickerBillingDate" HorizontalAlignment="Left" Height="30" Margin="27,240,0,0" VerticalAlignment="Top" Width="175" FirstDayOfWeek="Monday" Text="Valitse päivä"/>

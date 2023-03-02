@@ -41,7 +41,7 @@ namespace LaskutusRyhmaMayhem
         {
             this.textBoxCustomerAddress.SelectAll();
         }
-        private void textBoxCustomerZipCode_MouseEnter(object sender, MouseEventArgs e)
+        private void textBoxCustomerZipCode_GotFocus_1(object sender, RoutedEventArgs e)
         {
             this.textBoxCustomerZipCode.SelectAll();
         }
@@ -73,6 +73,7 @@ namespace LaskutusRyhmaMayhem
         {
             customerWindow.Close();
         }
+
 
     }
 }
