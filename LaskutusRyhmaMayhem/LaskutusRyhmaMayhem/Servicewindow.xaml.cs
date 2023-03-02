@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,15 +28,14 @@ namespace LaskutusRyhmaMayhem
         public Servicewindow()
         {
             InitializeComponent();
-          
-
-
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             var servicelevel = Servicelevel.Text;
-            var mprice = Monthlyprice.Text;
+            var mprice = Double.Parse(Monthlyprice.Text);
+            Service service = new Service(mprice, servicelevel);
+            File.AppendAllText("servicelevels.json", JsonSerializer.Serialize(service));
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
