@@ -31,7 +31,7 @@ namespace LaskutusRyhmaMayhem
             this.textBoxCustomerZipCode.SelectAll();
             try
             { 
-            var service = JsonSerializer.Deserialize<Service>(File.ReadAllText(@"servicelevel.json"));
+            var service = JsonSerializer.Deserialize<Service>(File.ReadAllText(@"servicelevels.json"));
             comboBoxServiceLevel.Items.Add(service.Text);
             }
             catch (Exception ex) { MessageBox.Show(ex.Message);  }

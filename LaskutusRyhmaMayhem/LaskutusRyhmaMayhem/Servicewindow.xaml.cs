@@ -35,7 +35,7 @@ namespace LaskutusRyhmaMayhem
             var servicelevel = Servicelevel.Text;
             var mprice = Double.Parse(Monthlyprice.Text);
             Service service = new Service(mprice, servicelevel);
-            File.AppendAllText("servicelevels.json", JsonSerializer.Serialize(service));
+            File.WriteAllText("servicelevels.json", JsonSerializer.Serialize(service));
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
