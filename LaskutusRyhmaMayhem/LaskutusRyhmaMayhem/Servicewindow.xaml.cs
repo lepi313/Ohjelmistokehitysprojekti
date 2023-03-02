@@ -23,7 +23,7 @@ namespace LaskutusRyhmaMayhem
     /// </summary>
     public partial class Servicewindow : Window
     {
-        ObservableCollection<Service> customerList = new ObservableCollection<Service>();
+       
        
         public Servicewindow()
         {
