@@ -23,6 +23,11 @@ namespace LaskutusRyhmaMayhem
         public Servicewindow()
         {
             InitializeComponent();
+            combobox.Items.Add("Basic");
+            combobox.Items.Add("Pro");
+            combobox.Items.Add("Enterprise");
+            combobox.Items.Add("Freetrial");
+
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
@@ -36,32 +41,9 @@ namespace LaskutusRyhmaMayhem
         }
 
        
-
-      
-
-        private void Enterprise_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void FreeTrial_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Pro_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Basic_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            textbox.Text = combobox.SelectedItem.ToString();
+            
         }
 
 
@@ -69,9 +51,10 @@ namespace LaskutusRyhmaMayhem
 
     private void ComboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            textBox1.Text = ComboBox1.SelectedItem.ToString();
             
         }
+
+        
     }
     }
 
