@@ -57,6 +57,21 @@ namespace LaskutusRyhmaMayhem
         {
 
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (combobox.SelectedItem != null)
+            {
+                //ComboBoxItem cbi1 = (ComboBoxItem)(sender as ComboBox).SelectedItem;  
+                ComboBoxItem cbi = (ComboBoxItem)combobox.SelectedItem;
+                string v = cbi.Content.ToString();
+            }
+        }
+
+        private void ComboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
     }
 
