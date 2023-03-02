@@ -13,12 +13,14 @@ namespace LaskutusRyhmaMayhem
     {
         public double Hinta { get; set; }
         public string Text { get; set; }
+
+        public Service(int hinta, string text)
+        {
+            Hinta = hinta;
+            Text = text;
+        }
     }
-    public Service(int hinta, string text)
-    {
-        Hinta = hinta;
-        Text = text;
-    }
+
     }
     
 
