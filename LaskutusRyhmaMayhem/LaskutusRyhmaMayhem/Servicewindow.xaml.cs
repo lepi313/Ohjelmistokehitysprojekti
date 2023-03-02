@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -20,19 +21,20 @@ namespace LaskutusRyhmaMayhem
     /// </summary>
     public partial class Servicewindow : Window
     {
+        ObservableCollection<Service> customerList = new ObservableCollection<Service>();
+       
         public Servicewindow()
         {
             InitializeComponent();
-            combobox.Items.Add("Basic");
-            combobox.Items.Add("Pro");
-            combobox.Items.Add("Enterprise");
-            combobox.Items.Add("Freetrial");
+          
+
 
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-           
+            var servicelevel = Servicelevel.Text;
+            var mprice = Monthlyprice.Text;
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
@@ -40,22 +42,40 @@ namespace LaskutusRyhmaMayhem
             Close();
         }
 
-       
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Servicelevel_GotFocus(object sender, RoutedEventArgs e)
         {
-            
-        }
-
-
-
-
-    private void ComboBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-        }
-
+            this.Servicelevel.SelectAll();
         
+        }
+        private void Monthlyprice_GotFocus(object sender, RoutedEventArgs e)
+        {
+            this.Monthlyprice.SelectAll();
+      
+        }
+
+       
+
+        private void add_servicelevel_Click(object sender, RoutedEventArgs e)
+        {
+            Allinone.Text = Servicelevel.Text + "-taso:  " + Monthlyprice.Text + " Euroa";
+            
+        }
+
+        private void Allinone_GotFocus(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
-    }
+}
+
+
+
+
+
+
+
+
+
+
 
 
