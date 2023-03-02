@@ -14,6 +14,7 @@ namespace LaskutusRyhmaMayhem
 {
     class Service
     {
+<<<<<<< HEAD
         public string ServLevel { get; set; }
         public string MPrice { get; set; }
 
@@ -28,4 +29,18 @@ namespace LaskutusRyhmaMayhem
 }
 
 
+=======
+        public double Hinta { get; set; }
+        public string Text { get; set; }
+
+        public Service(int hinta, string text)
+        {
+            Hinta = hinta;
+            Text = text;
+        }
+    }
+
+    }
+    
+>>>>>>> 617d7c0d34221049d383d9d07abcea991a57ab44
 

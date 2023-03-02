@@ -30,22 +30,6 @@ namespace LaskutusRyhmaMayhem
             listViewCustomers.ItemsSource = customerList;
             this.textBoxCustomerZipCode.SelectAll();
         }
-        private void buttonCancel_Click(object sender, RoutedEventArgs e)
-        {
-            customerWindow.Close();
-        }
-        private void buttonSave_Click(object sender, RoutedEventArgs e)
-        {
-            var customername = textBoxCustomerName.Text;
-            var customeraddress = textBoxCustomerAddress.Text;
-            var customerzipcode = textBoxCustomerZipCode.Text;
-            var customercity = textBoxCustomerCity.Text;
-            var customeremail = textBoxCustomerEmail.Text;
-            DateTime? firstbillingdate = datePickerBillingDate.SelectedDate;
-            Customer customer = new Customer(customername, customeraddress, customerzipcode, customercity, customeremail, firstbillingdate);
-            File.WriteAllText("customers.json", JsonSerializer.Serialize(customer));
-            customerList.Add(customer);
-        }
         private void textBoxCustomerAddress_GotFocus(object sender, RoutedEventArgs e)
         {
             this.textBoxCustomerAddress.SelectAll();
@@ -65,6 +49,22 @@ namespace LaskutusRyhmaMayhem
         private void textBoxCustomerEmail_GotFocus(object sender, RoutedEventArgs e)
         {
             this.textBoxCustomerEmail.SelectAll();
+        }
+        private void buttonSave_Click(object sender, RoutedEventArgs e)
+        {
+            var customername = textBoxCustomerName.Text;
+            var customeraddress = textBoxCustomerAddress.Text;
+            var customerzipcode = textBoxCustomerZipCode.Text;
+            var customercity = textBoxCustomerCity.Text;
+            var customeremail = textBoxCustomerEmail.Text;
+            DateTime? firstbillingdate = datePickerBillingDate.SelectedDate;
+            Customer customer = new Customer(customername, customeraddress, customerzipcode, customercity, customeremail, firstbillingdate);
+            File.WriteAllText("customers.json", JsonSerializer.Serialize(customer));
+            customerList.Add(customer);
+        }
+        private void buttonCancel_Click(object sender, RoutedEventArgs e)
+        {
+            customerWindow.Close();
         }
 
     }
