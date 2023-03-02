@@ -29,6 +29,13 @@ namespace LaskutusRyhmaMayhem
             InitializeComponent();
             listViewCustomers.ItemsSource = customerList;
             this.textBoxCustomerZipCode.SelectAll();
+            try
+            { 
+            var service = JsonSerializer.Deserialize<Service>(File.ReadAllText(@"servicelevel.json"));
+            comboBoxServiceLevel.Items.Add(service.Text);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message);  }
+
         }
         private void textBoxCustomerAddress_GotFocus(object sender, RoutedEventArgs e)
         {
