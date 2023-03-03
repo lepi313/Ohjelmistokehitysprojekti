@@ -20,7 +20,6 @@
         <Label Content="Palvelutaso ja hinta" HorizontalAlignment="Left" Margin="531,90,0,0" VerticalAlignment="Top" Width="120"/>
 
 
-
     </Grid>
 
 </Window>

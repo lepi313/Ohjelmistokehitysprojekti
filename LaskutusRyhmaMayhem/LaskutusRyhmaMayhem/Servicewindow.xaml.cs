@@ -58,7 +58,7 @@ namespace LaskutusRyhmaMayhem
 
         private void add_servicelevel_Click(object sender, RoutedEventArgs e)
         {
-            Allinone.Text = Servicelevel.Text + "-taso:  " + Monthlyprice.Text + " Euroa";
+            Allinone.Text = (Servicelevel.Text + "-taso: " + Monthlyprice.Text); 
             
         }
 
@@ -66,6 +66,8 @@ namespace LaskutusRyhmaMayhem
         {
 
         }
+
+        
     }
 }
 
