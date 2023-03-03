@@ -15,9 +15,15 @@
 
         <TextBox x:Name="Servicelevel"  HorizontalAlignment="Left" Margin="107,121,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" GotFocus="Servicelevel_GotFocus"/>
         <TextBox x:Name="Monthlyprice" HorizontalAlignment="Left" Margin="251,121,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"  GotFocus="Monthlyprice_GotFocus"/>
-        <TextBox x:Name="Allinone" HorizontalAlignment="Left" Margin="531,121,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" GotFocus="Allinone_GotFocus"/>
+
         <Button x:Name="add_servicelevel" Content="Lisää palvelutaso ja hinta" HorizontalAlignment="Left" Margin="107,161,0,0" VerticalAlignment="Top" Click="add_servicelevel_Click" Height="30" Width="153"/>
         <Label Content="Palvelutaso ja hinta" HorizontalAlignment="Left" Margin="531,90,0,0" VerticalAlignment="Top" Width="120"/>
+        <ListBox x:Name="listbox" Margin="518,121,20,142">
+            <ListBoxItem>Basic-taso 9,99 Euroa Kuukausihinta</ListBoxItem>
+            <ListBoxItem>Pro-taso 12,99 Euroa Kuukausihinta</ListBoxItem>
+            <ListBoxItem>Enterprise-taso Euroa 14,99 Kuukausihinta</ListBoxItem>
+        </ListBox>
+        <Button x:Name="Remove" Content="Poista palvelutaso" HorizontalAlignment="Left" Margin="107,0,0,0" VerticalAlignment="Center" Click="Button_Click_1" Height="30" Width="153"/>
 
 
     </Grid>
