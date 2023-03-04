@@ -65,6 +65,8 @@ namespace LaskutusRyhmaMayhem
         {
             listbox.Items.Remove(listbox.SelectedItem);
         }
+
+       
     }
 }
 
