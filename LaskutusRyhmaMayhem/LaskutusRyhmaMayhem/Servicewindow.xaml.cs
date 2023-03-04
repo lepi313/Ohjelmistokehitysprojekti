@@ -59,11 +59,11 @@ namespace LaskutusRyhmaMayhem
         private void add_servicelevel_Click(object sender, RoutedEventArgs e)
         {
             
-            listbox.Items.Add(Servicelevel.Text + "-taso " + Monthlyprice.Text + " Euroa Kuukausihinta");
+            listview.Items.Add(Servicelevel.Text + "-taso " + Monthlyprice.Text + " Euroa Kuukausihinta");
         }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            listbox.Items.Remove(listbox.SelectedItem);
+            listview.Items.Remove(listview.SelectedItem);
         }
 
        

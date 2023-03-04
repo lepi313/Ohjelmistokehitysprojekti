@@ -18,12 +18,15 @@
 
         <Button x:Name="add_servicelevel" Content="Lisää palvelutaso ja hinta" HorizontalAlignment="Left" Margin="107,161,0,0" VerticalAlignment="Top" Click="add_servicelevel_Click" Height="30" Width="153"/>
         <Label Content="Palvelutaso ja hinta" HorizontalAlignment="Left" Margin="531,90,0,0" VerticalAlignment="Top" Width="120"/>
-        <ListBox x:Name="listbox" Margin="518,121,20,142">
-            <ListBoxItem>Basic-taso 9,99 Euroa Kuukausihinta</ListBoxItem>
-            <ListBoxItem>Pro-taso 12,99 Euroa Kuukausihinta</ListBoxItem>
-            <ListBoxItem>Enterprise-taso Euroa 14,99 Kuukausihinta</ListBoxItem>
-        </ListBox>
+       
         <Button x:Name="Remove" Content="Poista palvelutaso" HorizontalAlignment="Left" Margin="107,0,0,0" VerticalAlignment="Center" Click="Button_Click_1" Height="30" Width="153"/>
+        <ListView x:Name="listview" Margin="485,146,10,146" RenderTransformOrigin="0.796,1.013">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
 
     </Grid>
