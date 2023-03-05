@@ -21,16 +21,7 @@ namespace LaskutusRyhmaMayhem
             ServLevel = servlevel;
             MPrice = mprice;
         }
-class Invoice
-        {
-            public string StringInvDate { get; set; }
-            public DateTime InvoiceDate { get; set; }
 
-            public Double InvoiceSum  { get; set; }
-
-            public Customer CustometName { get; set; }
-
-        }
     }
 
 }

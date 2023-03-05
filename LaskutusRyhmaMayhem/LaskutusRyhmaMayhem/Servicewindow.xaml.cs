@@ -23,8 +23,6 @@ namespace LaskutusRyhmaMayhem
     /// </summary>
     public partial class Servicewindow : Window
     {
-       
-       
         public Servicewindow()
         {
             InitializeComponent();
@@ -46,12 +44,10 @@ namespace LaskutusRyhmaMayhem
         private void Servicelevel_GotFocus(object sender, RoutedEventArgs e)
         {
             this.Servicelevel.SelectAll();
-        
         }
         private void Monthlyprice_GotFocus(object sender, RoutedEventArgs e)
         {
             this.Monthlyprice.SelectAll();
-      
         }
 
        
@@ -59,11 +55,11 @@ namespace LaskutusRyhmaMayhem
         private void add_servicelevel_Click(object sender, RoutedEventArgs e)
         {
             
-            listview.Items.Add(Servicelevel.Text + "-taso " + Monthlyprice.Text + " Euroa Kuukausihinta");
+            listViewService.Items.Add(Servicelevel.Text + "-taso " + Monthlyprice.Text + " Euroa Kuukausihinta");
         }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            listview.Items.Remove(listview.SelectedItem);
+            listViewService.Items.Remove(listViewService.SelectedItem);
         }
 
        
