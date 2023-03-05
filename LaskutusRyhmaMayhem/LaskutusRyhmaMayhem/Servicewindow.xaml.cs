@@ -23,6 +23,7 @@ namespace LaskutusRyhmaMayhem
     /// </summary>
     public partial class Servicewindow : Window
     {
+        ObservableCollection<Service> servicelist = new ObservableCollection<Service>();
         public Servicewindow()
         {
             InitializeComponent();
@@ -33,6 +34,8 @@ namespace LaskutusRyhmaMayhem
             var servicelevel = Servicelevel.Text;
             var mprice = Double.Parse(Monthlyprice.Text);
             Service service = new Service(mprice, servicelevel);
+            servicelist.Add(service);
+            listViewService.ItemsSource = servicelist;  
             File.WriteAllText("servicelevels.json", JsonSerializer.Serialize(service));
         }
 

@@ -13,5 +13,11 @@ namespace LaskutusRyhmaMayhem
         public Double InvoiceSum { get; set; }
         public Customer CustomerName { get; set; }
 
+        public Invoice(DateTime? invoicedate, int Discount, Customer customer, Service service)
+        {
+            DateTime invdate = DateTime.Parse(invoicedate.ToString());
+            StringInvDate= invdate.ToString();
+            CustomerName = customer;
+        }
     }
 }
