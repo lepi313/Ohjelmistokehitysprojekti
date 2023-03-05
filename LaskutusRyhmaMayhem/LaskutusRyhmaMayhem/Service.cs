@@ -14,15 +14,23 @@ namespace LaskutusRyhmaMayhem
 {
     class Service
     {
-        public double Hinta { get; set; }
-        public string Text { get; set; }
-
-        public Service(double hinta, string text)
+        public string ServLevel { get; set; }
+        public double MPrice { get; set; }
+        public Service(double mprice, string servlevel)
         {
-            Hinta = hinta;
-            Text = text;
+            ServLevel = servlevel;
+            MPrice = mprice;
         }
+class Invoice
+        {
+            public string StringInvDate { get; set; }
+            public DateTime InvoiceDate { get; set; }
 
+            public Double InvoiceSum  { get; set; }
+
+            public Customer CustometName { get; set; }
+
+        }
     }
 
 }

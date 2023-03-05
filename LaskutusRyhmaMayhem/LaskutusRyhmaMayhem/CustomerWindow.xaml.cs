@@ -32,7 +32,7 @@ namespace LaskutusRyhmaMayhem
             try
             { 
             var service = JsonSerializer.Deserialize<Service>(File.ReadAllText(@"servicelevels.json"));
-            comboBoxServiceLevel.Items.Add(service.Text);
+           // comboBoxServiceLevel.Items.Add(service.Text);
             }
             catch (Exception ex) { MessageBox.Show(ex.Message);  }
 

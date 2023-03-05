@@ -58,14 +58,15 @@ namespace LaskutusRyhmaMayhem
 
         private void add_servicelevel_Click(object sender, RoutedEventArgs e)
         {
-            Allinone.Text = Servicelevel.Text + "-taso:  " + Monthlyprice.Text + " Euroa";
             
+            listview.Items.Add(Servicelevel.Text + "-taso " + Monthlyprice.Text + " Euroa Kuukausihinta");
         }
-
-        private void Allinone_GotFocus(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            listview.Items.Remove(listview.SelectedItem);
         }
+
+       
     }
 }
 
