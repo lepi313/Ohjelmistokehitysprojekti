@@ -74,6 +74,9 @@ namespace LaskutusRyhmaMayhem
             customerWindow.Close();
         }
 
-
+        private void buttonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            customerList.RemoveAt(listViewCustomers.SelectedIndex);
+        }
     }
 }

@@ -29,7 +29,7 @@
             </ListView.View>
         </ListView>
         <Button x:Name="buttonEdit" Content="Muokkaa" HorizontalAlignment="Left" Height="30" Margin="400,39,0,0" VerticalAlignment="Top" Width="80"/>
-        <Button x:Name="buttonDelete" Content="Poista" HorizontalAlignment="Left" Height="30" Margin="400,74,0,0" VerticalAlignment="Top" Width="80"/>
+        <Button x:Name="buttonDelete" Content="Poista" HorizontalAlignment="Left" Height="30" Margin="400,74,0,0" VerticalAlignment="Top" Width="80" Click="buttonDelete_Click"/>
 
     </Grid>
 </Window>
