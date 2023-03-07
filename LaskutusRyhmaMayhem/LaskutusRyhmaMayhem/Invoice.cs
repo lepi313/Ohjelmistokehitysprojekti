@@ -13,11 +13,58 @@ namespace LaskutusRyhmaMayhem
         public Double InvoiceSum { get; set; }
         public Customer CustomerName { get; set; }
 
-        public Invoice(DateTime? invoicedate, int Discount, Customer customer, Service service)
+        public Invoice(DateTime? invoicedate, int discount, Customer customer, Service service)
         {
             DateTime invdate = DateTime.Parse(invoicedate.ToString());
             StringInvDate= invdate.ToString();
+            InvoiceDate = CalculateInvoiceDate(invdate, discount);
+            InvoiceSum = CalculateDiscountPrice(discount, service);
             CustomerName = customer;
         }
+
+        public DateTime CalculateInvoiceDate(DateTime invdate, int discount)
+        {
+            if (discount == 0)
+            {
+                return invdate.AddDays(180);
+            }
+            else if (discount == 1)
+            {
+                return invdate.AddDays(365);
+            }
+            else if (discount == 3)
+            {
+                return invdate.AddDays(30);
+            }
+            else
+            {
+                return invdate;
+            }
+        }
+
+        public double CalculateDiscountPrice(int discount, Service service)
+        {
+            double dateamount = 0;
+            if (discount == 0)
+            {
+                dateamount = 180;
+            }
+            else if (discount == 1)
+            {
+                dateamount = 365;
+            }
+            else if (discount == 2)
+            {
+                dateamount = 30;
+            }
+            else
+            {
+                dateamount = 30;
+            }
+            return service.MPrice * Math.Floor(dateamount / 30);
+        }
+
+        public Invoice()
+        { }
     }
 }

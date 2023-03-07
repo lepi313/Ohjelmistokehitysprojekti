@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,6 +25,21 @@ namespace LaskutusRyhmaMayhem
         public MainWindow()
         {
             InitializeComponent();
+            string jsonpath = "invoicelist.json";
+            if (File.Exists(jsonpath))
+            {
+                try
+                {
+                    var invoicestring = File.ReadAllText("invoicelist.json");
+                    var invoices = JsonSerializer.Deserialize<List<Invoice>>(invoicestring);
+                    if (invoices != null)
+                    {
+                        listViewInvoices.ItemsSource = invoices;
+                    }
+
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
+            }
         }
 
         private void palvelutasot_Click(object sender, RoutedEventArgs e)
@@ -32,6 +49,17 @@ namespace LaskutusRyhmaMayhem
         }
         private void Maksut_Click_1(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                var invoicestring = File.ReadAllText("invoicelist.json");
+                var invoices = JsonSerializer.Deserialize<List<Invoice>>(invoicestring);
+                if (invoices != null)
+                {
+                    listViewInvoices.ItemsSource = invoices;
+                }
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void buttonAddCustomer_Click(object sender, RoutedEventArgs e)

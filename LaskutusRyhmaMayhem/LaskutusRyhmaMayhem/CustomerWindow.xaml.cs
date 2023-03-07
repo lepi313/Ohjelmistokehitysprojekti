@@ -24,7 +24,9 @@ namespace LaskutusRyhmaMayhem
     public partial class CustomerWindow : Window
     {
         ObservableCollection<Customer> customerList = new ObservableCollection<Customer>();
+        ObservableCollection<Invoice> invoiceList = new ObservableCollection<Invoice>();
         List<Service> serviceList = new List<Service>();
+        List<string> discountList = new List<string>();
         public CustomerWindow()
         {
             InitializeComponent();
@@ -67,7 +69,30 @@ namespace LaskutusRyhmaMayhem
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
             }
 
-            listViewCustomers.ItemsSource = customerList;
+            string jsoninvoice = "invoicelist.json";
+            if (File.Exists(jsoninvoice))
+            {
+
+                try
+                {
+                    var invoicestring = File.ReadAllText("invoicelist.json");
+                    var invoices = JsonSerializer.Deserialize<List<Invoice>>(invoicestring);
+                    if (invoices != null)
+                    {
+                        foreach (var invoice in invoices)
+                        {
+                            invoiceList.Add(invoice);
+                        }
+                    }
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
+            }
+
+            discountList.Add("6 kuukautta");
+            discountList.Add("12 kuukautta");
+            discountList.Add("30 päivää kokeilujakso");
+            discountList.Add("Ei alennusta");
+            comboBoxPurchase.ItemsSource = discountList;
             this.textBoxCustomerZipCode.SelectAll();
         }
         private void textBoxCustomerAddress_GotFocus(object sender, RoutedEventArgs e)
@@ -97,16 +122,21 @@ namespace LaskutusRyhmaMayhem
             var customerzipcode = textBoxCustomerZipCode.Text;
             var customercity = textBoxCustomerCity.Text;
             var customeremail = textBoxCustomerEmail.Text;
-            var servicelevel = comboBoxServiceLevel.SelectedIndex;
             DateTime? firstbillingdate = datePickerBillingDate.SelectedDate;
+            var servicelevel = comboBoxServiceLevel.SelectedIndex;
+            var discount = comboBoxPurchase.SelectedIndex;
             Customer customer = new Customer(customername, customeraddress, customerzipcode, customercity, customeremail, firstbillingdate, serviceList[servicelevel]);
+            Invoice invoice = new Invoice(firstbillingdate, discount, customer, serviceList[servicelevel]);
             customerList.Add(customer);
+            invoiceList.Add(invoice);
         }
         private void buttonCancel_Click(object sender, RoutedEventArgs e)
         {
             customerWindow.Close();
             var jsoncustomer = JsonSerializer.Serialize(customerList);
             File.WriteAllText("customerlist.json", jsoncustomer);
+            var jsoninvoice = JsonSerializer.Serialize(invoiceList);
+            File.WriteAllText("invoicelist.json", jsoninvoice);
         }
 
 
