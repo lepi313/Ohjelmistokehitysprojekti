@@ -139,6 +139,9 @@ namespace LaskutusRyhmaMayhem
             File.WriteAllText("invoicelist.json", jsoninvoice);
         }
 
-
+        private void buttonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            customerList.RemoveAt(listViewCustomers.SelectedIndex);
+        }
     }
 }

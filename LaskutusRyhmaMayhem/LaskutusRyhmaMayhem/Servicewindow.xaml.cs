@@ -82,7 +82,7 @@ namespace LaskutusRyhmaMayhem
         }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            listViewService.Items.Remove(listViewService.SelectedItem);
+            servicelist.RemoveAt(listViewService.SelectedIndex);
         }
 
        
