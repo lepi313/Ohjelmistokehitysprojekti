@@ -23,7 +23,8 @@
         <ListView x:Name="listViewService" Margin="485,146,10,146" RenderTransformOrigin="0.796,1.013">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <GridViewColumn Header="Palvelutaso" DisplayMemberBinding="{Binding ServLevel}"/>
+                    <GridViewColumn Header="Hinta" DisplayMemberBinding="{Binding MPrice}"/>
                 </GridView>
             </ListView.View>
         </ListView>

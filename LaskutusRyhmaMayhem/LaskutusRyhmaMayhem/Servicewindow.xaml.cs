@@ -27,6 +27,25 @@ namespace LaskutusRyhmaMayhem
         public Servicewindow()
         {
             InitializeComponent();
+            string jsonpath = "servicelevels.json";
+            if (File.Exists(jsonpath))
+            {
+                try
+                {
+                    var servicestring = File.ReadAllText("servicelevels.json");
+                    var services = JsonSerializer.Deserialize<List<Service>>(servicestring);
+                    if (services != null)
+                    {
+                        foreach (var service in services)
+                        {
+                            servicelist.Add(service);
+                        }
+                        listViewService.ItemsSource = servicelist;
+                    }
+                }
+                //tämä on virheenkäsittelyä
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
+            }
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
@@ -36,12 +55,13 @@ namespace LaskutusRyhmaMayhem
             Service service = new Service(mprice, servicelevel);
             servicelist.Add(service);
             listViewService.ItemsSource = servicelist;  
-            File.WriteAllText("servicelevels.json", JsonSerializer.Serialize(service));
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             Close();
+            var jsonservice = JsonSerializer.Serialize(servicelist);
+            File.WriteAllText("servicelevels.json", jsonservice);
         }
 
         private void Servicelevel_GotFocus(object sender, RoutedEventArgs e)

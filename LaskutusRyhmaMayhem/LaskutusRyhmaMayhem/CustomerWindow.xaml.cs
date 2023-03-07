@@ -24,18 +24,51 @@ namespace LaskutusRyhmaMayhem
     public partial class CustomerWindow : Window
     {
         ObservableCollection<Customer> customerList = new ObservableCollection<Customer>();
+        List<Service> serviceList = new List<Service>();
         public CustomerWindow()
         {
             InitializeComponent();
+            string jsonpath = "servicelevels.json";
+            if (File.Exists(jsonpath))
+            {
+                try
+                {
+                    var servicestring = File.ReadAllText("servicelevels.json");
+                    var services = JsonSerializer.Deserialize<List<Service>>(servicestring);
+                    if (services != null)
+                    {
+                        foreach (var service in services)
+                        {
+                            comboBoxServiceLevel.Items.Add(service.ServLevel + " " + service.MPrice.ToString() + "€");
+                            serviceList.Add(service);
+                        }
+                    }
+
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
+            }
+
+            string jsoncustomer = "customerlist.json";
+            if (File.Exists(jsoncustomer))
+            {
+                try
+                {
+                    var customerstring = File.ReadAllText("customerlist.json");
+                    var customers = JsonSerializer.Deserialize<List<Customer>>(customerstring);
+                    if (customers != null)
+                    {
+                        foreach (var customer in customers)
+                        {
+                            customerList.Add(customer);
+                        }
+                        listViewCustomers.ItemsSource = customerList;
+                    }
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
+            }
+
             listViewCustomers.ItemsSource = customerList;
             this.textBoxCustomerZipCode.SelectAll();
-            try
-            { 
-            var service = JsonSerializer.Deserialize<Service>(File.ReadAllText(@"servicelevels.json"));
-           // comboBoxServiceLevel.Items.Add(service.Text);
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message);  }
-
         }
         private void textBoxCustomerAddress_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -64,14 +97,16 @@ namespace LaskutusRyhmaMayhem
             var customerzipcode = textBoxCustomerZipCode.Text;
             var customercity = textBoxCustomerCity.Text;
             var customeremail = textBoxCustomerEmail.Text;
+            var servicelevel = comboBoxServiceLevel.SelectedIndex;
             DateTime? firstbillingdate = datePickerBillingDate.SelectedDate;
-            Customer customer = new Customer(customername, customeraddress, customerzipcode, customercity, customeremail, firstbillingdate);
-            File.WriteAllText("customers.json", JsonSerializer.Serialize(customer));
+            Customer customer = new Customer(customername, customeraddress, customerzipcode, customercity, customeremail, firstbillingdate, serviceList[servicelevel]);
             customerList.Add(customer);
         }
         private void buttonCancel_Click(object sender, RoutedEventArgs e)
         {
             customerWindow.Close();
+            var jsoncustomer = JsonSerializer.Serialize(customerList);
+            File.WriteAllText("customerlist.json", jsoncustomer);
         }
 
 
