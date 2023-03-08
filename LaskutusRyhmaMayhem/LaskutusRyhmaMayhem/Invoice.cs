@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LaskutusRyhmaMayhem
 {
-    internal class Invoice
+    class Invoice
     {
         public string StringInvDate { get; set; }
         public DateTime InvoiceDate { get; set; }

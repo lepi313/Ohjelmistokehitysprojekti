@@ -129,7 +129,9 @@ namespace LaskutusRyhmaMayhem
             Invoice invoice = new Invoice(firstbillingdate, discount, customer, serviceList[servicelevel]);
             customerList.Add(customer);
             invoiceList.Add(invoice);
+            listViewCustomers.ItemsSource = customerList;
         }
+
         private void buttonCancel_Click(object sender, RoutedEventArgs e)
         {
             customerWindow.Close();
@@ -141,7 +143,16 @@ namespace LaskutusRyhmaMayhem
 
         private void buttonDelete_Click(object sender, RoutedEventArgs e)
         {
-            customerList.RemoveAt(listViewCustomers.SelectedIndex);
+            try
+            {
+                Customer customer = customerList[listViewCustomers.SelectedIndex];
+                customerList.RemoveAt(listViewCustomers.SelectedIndex);
+                foreach (var invoiceToRemove in invoiceList.Where(a => a.CustomerName.Name == customer.Name).ToList())
+                {
+                    invoiceList.Remove(invoiceToRemove);
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }

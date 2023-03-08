@@ -43,7 +43,6 @@ namespace LaskutusRyhmaMayhem
                         listViewService.ItemsSource = servicelist;
                     }
                 }
-                //tämä on virheenkäsittelyä
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
             }
         }
@@ -82,7 +81,11 @@ namespace LaskutusRyhmaMayhem
         }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            servicelist.RemoveAt(listViewService.SelectedIndex);
+            try
+            {
+                servicelist.RemoveAt(listViewService.SelectedIndex);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
        

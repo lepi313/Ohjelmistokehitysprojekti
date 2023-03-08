@@ -25,7 +25,7 @@ namespace LaskutusRyhmaMayhem
             City= city;
             Email= email;
             FirstBillingDate = firstbillingdate;
-            Servicelevel= servicelevel;
+            Servicelevel = servicelevel;            
         }
 
     }
