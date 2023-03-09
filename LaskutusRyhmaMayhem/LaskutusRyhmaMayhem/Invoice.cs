@@ -18,6 +18,7 @@ namespace LaskutusRyhmaMayhem
             DateTime invdate = DateTime.Parse(invoicedate.ToString());
             StringInvDate= invdate.ToString();
             InvoiceDate = CalculateInvoiceDate(invdate, discount);
+            StringInvDate = InvoiceDate.ToShortDateString();
             InvoiceSum = CalculateDiscountPrice(discount, service);
             CustomerName = customer;
         }
@@ -32,7 +33,7 @@ namespace LaskutusRyhmaMayhem
             {
                 return invdate.AddDays(365);
             }
-            else if (discount == 3)
+            else if (discount == 2)
             {
                 return invdate.AddDays(30);
             }
