@@ -13,56 +13,71 @@ namespace LaskutusRyhmaMayhem
         public Double InvoiceSum { get; set; }
         public Customer CustomerName { get; set; }
 
-        public Invoice(DateTime? invoicedate, int discount, Customer customer, Service service)
+        public void SetInvoices(DateTime? invoicedate, int discount, Customer customer, Service service)
         {
             DateTime invdate = DateTime.Parse(invoicedate.ToString());
-            StringInvDate= invdate.ToString();
-            InvoiceDate = CalculateInvoiceDate(invdate, discount);
-            StringInvDate = InvoiceDate.ToShortDateString();
-            InvoiceSum = CalculateDiscountPrice(discount, service);
-            CustomerName = customer;
-        }
-
-        public DateTime CalculateInvoiceDate(DateTime invdate, int discount)
-        {
+            int dateamount = 0;
             if (discount == 0)
             {
-                return invdate.AddDays(180);
+                dateamount = 180;
+                InvoiceDate = invdate;
+                StringInvDate = InvoiceDate.ToShortDateString();
+                InvoiceSum = CalculateDiscountPrice(discount, service);
+                CustomerName = customer;
             }
             else if (discount == 1)
             {
-                return invdate.AddDays(365);
+                dateamount = 365;
+                InvoiceDate = invdate;
+                StringInvDate = InvoiceDate.ToShortDateString();
+                InvoiceSum = CalculateDiscountPrice(discount, service);
+                CustomerName = customer;
             }
             else if (discount == 2)
             {
-                return invdate.AddDays(30);
+                dateamount = 30;
+                InvoiceDate = invdate.AddDays(dateamount);
+                StringInvDate = InvoiceDate.ToShortDateString();
+                InvoiceSum = CalculateDiscountPrice(discount, service);
+                CustomerName = customer;
             }
             else
             {
-                return invdate;
+                dateamount = 0;
+                InvoiceDate = invdate;
+                StringInvDate = InvoiceDate.ToShortDateString();
+                InvoiceSum = CalculateDiscountPrice(discount, service);
+                CustomerName = customer;
             }
         }
 
         public double CalculateDiscountPrice(int discount, Service service)
         {
             double dateamount = 0;
+            double percentage = 0;
+
             if (discount == 0)
             {
                 dateamount = 180;
+                percentage = 0.9;
             }
             else if (discount == 1)
             {
                 dateamount = 365;
+                percentage = 0.82;
             }
             else if (discount == 2)
             {
                 dateamount = 30;
+                percentage = 1;
             }
             else
             {
                 dateamount = 30;
+                percentage = 1;
             }
-            return service.MPrice * Math.Floor(dateamount / 30);
+
+            return Math.Round(service.MPrice * Math.Floor(dateamount / 30) * percentage, 2);
         }
 
         public Invoice()

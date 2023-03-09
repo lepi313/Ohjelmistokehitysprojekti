@@ -126,7 +126,8 @@ namespace LaskutusRyhmaMayhem
             var servicelevel = comboBoxServiceLevel.SelectedIndex;
             var discount = comboBoxPurchase.SelectedIndex;
             Customer customer = new Customer(customername, customeraddress, customerzipcode, customercity, customeremail, firstbillingdate, serviceList[servicelevel]);
-            Invoice invoice = new Invoice(firstbillingdate, discount, customer, serviceList[servicelevel]);
+            Invoice invoice = new Invoice();
+            invoice.SetInvoices(firstbillingdate, discount, customer, serviceList[servicelevel]);
             customerList.Add(customer);
             invoiceList.Add(invoice);
             listViewCustomers.ItemsSource = customerList;
