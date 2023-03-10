@@ -1,1 +1,0 @@
-# Muistiot tänne kansioon.

@@ -62,23 +62,6 @@ namespace LaskutusRyhmaMayhem
             var jsonservice = JsonSerializer.Serialize(servicelist);
             File.WriteAllText("servicelevels.json", jsonservice);
         }
-
-        private void Servicelevel_GotFocus(object sender, RoutedEventArgs e)
-        {
-            this.Servicelevel.SelectAll();
-        }
-        private void Monthlyprice_GotFocus(object sender, RoutedEventArgs e)
-        {
-            this.Monthlyprice.SelectAll();
-        }
-
-       
-
-        private void add_servicelevel_Click(object sender, RoutedEventArgs e)
-        {
-            
-            listViewService.Items.Add(Servicelevel.Text + "-taso " + Monthlyprice.Text + " Euroa Kuukausihinta");
-        }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             try
