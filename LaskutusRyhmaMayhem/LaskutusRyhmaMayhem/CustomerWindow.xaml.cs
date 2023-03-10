@@ -24,7 +24,6 @@ namespace LaskutusRyhmaMayhem
     public partial class CustomerWindow : Window
     {
         ObservableCollection<Customer> customerList = new ObservableCollection<Customer>();
-        ObservableCollection<Invoice> invoiceList = new ObservableCollection<Invoice>();
         List<Service> serviceList = new List<Service>();
         List<string> discountList = new List<string>();
         public CustomerWindow()
@@ -69,25 +68,6 @@ namespace LaskutusRyhmaMayhem
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
             }
 
-            string jsoninvoice = "invoicelist.json";
-            if (File.Exists(jsoninvoice))
-            {
-
-                try
-                {
-                    var invoicestring = File.ReadAllText("invoicelist.json");
-                    var invoices = JsonSerializer.Deserialize<List<Invoice>>(invoicestring);
-                    if (invoices != null)
-                    {
-                        foreach (var invoice in invoices)
-                        {
-                            invoiceList.Add(invoice);
-                        }
-                    }
-                }
-                catch (Exception ex) { MessageBox.Show(ex.Message); }
-            }
-
             discountList.Add("6 kuukautta");
             discountList.Add("12 kuukautta");
             discountList.Add("30 päivää kokeilujakso");
@@ -117,21 +97,25 @@ namespace LaskutusRyhmaMayhem
         }
         private void buttonSave_Click(object sender, RoutedEventArgs e)
         {
-            var customername = textBoxCustomerName.Text;
-            var customeraddress = textBoxCustomerAddress.Text;
-            var customerzipcode = textBoxCustomerZipCode.Text;
-            var customercity = textBoxCustomerCity.Text;
-            var customeremail = textBoxCustomerEmail.Text;
-            DateTime? firstbillingdate = datePickerBillingDate.SelectedDate;
-            var servicelevel = comboBoxServiceLevel.SelectedIndex;
-            var discount = comboBoxPurchase.SelectedIndex;
-            Customer customer = new Customer(customername, customeraddress, customerzipcode, customercity, customeremail, firstbillingdate, serviceList[servicelevel]);
-            Invoice invoice = new Invoice();
-            invoice.SetInvoices(firstbillingdate, discount, customer, serviceList[servicelevel]);
-            customerList.Add(customer);
-            var jsoninvoice = JsonSerializer.Serialize(Invoice.invoiceList);
-            File.WriteAllText("invoicelist.json", jsoninvoice);
-            listViewCustomers.ItemsSource = customerList;
+            try
+            {
+                var customername = textBoxCustomerName.Text;
+                var customeraddress = textBoxCustomerAddress.Text;
+                var customerzipcode = textBoxCustomerZipCode.Text;
+                var customercity = textBoxCustomerCity.Text;
+                var customeremail = textBoxCustomerEmail.Text;
+                DateTime? firstbillingdate = datePickerBillingDate.SelectedDate;
+                var servicelevel = comboBoxServiceLevel.SelectedIndex;
+                var discount = comboBoxPurchase.SelectedIndex;
+                Customer customer = new Customer(customername, customeraddress, customerzipcode, customercity, customeremail, firstbillingdate, serviceList[servicelevel]);
+                Invoice invoice = new Invoice();
+                invoice.SetInvoices(firstbillingdate, discount, customer, serviceList[servicelevel]);
+                customerList.Add(customer);
+                listViewCustomers.ItemsSource = customerList;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+
+
         }
 
         private void buttonCancel_Click(object sender, RoutedEventArgs e)
@@ -147,11 +131,12 @@ namespace LaskutusRyhmaMayhem
             {
                 Customer customer = customerList[listViewCustomers.SelectedIndex];
                 customerList.RemoveAt(listViewCustomers.SelectedIndex);
-                foreach (var invoiceToRemove in invoiceList.Where(a => a.CustomerName.Name == customer.Name).ToList())
+                foreach (var invoiceToRemove in Invoice.invoiceList.Where(a => a.CustomerName.Name == customer.Name).ToList())
                 {
-                    invoiceList.Remove(invoiceToRemove);
+                    Invoice.invoiceList.Remove(invoiceToRemove);
                 }
-
+                var jsoninvoice = JsonSerializer.Serialize(Invoice.invoiceList);
+                File.WriteAllText("invoicelist.json", jsoninvoice);
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }

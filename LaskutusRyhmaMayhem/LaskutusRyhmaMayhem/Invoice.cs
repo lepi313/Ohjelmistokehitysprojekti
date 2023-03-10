@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace LaskutusRyhmaMayhem
 {
@@ -17,6 +20,8 @@ namespace LaskutusRyhmaMayhem
 
         public void SetInvoices(DateTime? invoicedate, int discount, Customer customer, Service service)
         {
+            invoiceList.Clear();
+
             DateTime invdate = DateTime.Parse(invoicedate.ToString());
             int dateamount = 0;
             if (discount == 0)
@@ -64,6 +69,8 @@ namespace LaskutusRyhmaMayhem
                 InvoiceDate = InvoiceDate.AddDays(30);
             }
 
+            var jsoninvoice = JsonSerializer.Serialize(Invoice.invoiceList);
+            File.WriteAllText("invoicelist.json", jsoninvoice);
         }
 
         public double CalculateDiscountPrice(int discount, Service service)

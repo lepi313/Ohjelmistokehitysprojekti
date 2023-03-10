@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace LaskutusRyhmaMayhem
     /// </summary>
     public partial class MainWindow : Window
     {
+        ObservableCollection<Invoice> mainInvoiceList = new ObservableCollection<Invoice>();
         public MainWindow()
         {
             InitializeComponent();
@@ -34,7 +36,12 @@ namespace LaskutusRyhmaMayhem
                     var invoices = JsonSerializer.Deserialize<List<Invoice>>(invoicestring);
                     if (invoices != null)
                     {
-                        listViewInvoices.ItemsSource = invoices;
+                        foreach (var invoice in invoices)
+                        {
+                            mainInvoiceList.Add(invoice);
+                        }
+                        listViewInvoices.ItemsSource = mainInvoiceList;
+
                     }
 
                 }
@@ -55,7 +62,12 @@ namespace LaskutusRyhmaMayhem
                 var invoices = JsonSerializer.Deserialize<List<Invoice>>(invoicestring);
                 if (invoices != null)
                 {
-                    listViewInvoices.ItemsSource = invoices;
+                    mainInvoiceList.Clear();
+                    foreach (var invoice in invoices)
+                    {
+                        mainInvoiceList.Add(invoice);
+                    }
+                    listViewInvoices.ItemsSource = mainInvoiceList;
                 }
 
             }
@@ -82,6 +94,8 @@ namespace LaskutusRyhmaMayhem
 
         private void buttonExit_Click(object sender, RoutedEventArgs e)
         {
+            var jsoninvoice = JsonSerializer.Serialize(Invoice.invoiceList);
+            File.WriteAllText("invoicelist.json", jsoninvoice);
             Close();
         }
     }
