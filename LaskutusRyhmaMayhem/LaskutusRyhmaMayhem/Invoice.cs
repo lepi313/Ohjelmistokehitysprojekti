@@ -73,7 +73,7 @@ namespace LaskutusRyhmaMayhem
             File.WriteAllText("invoicelist.json", jsoninvoice);
         }
 
-        public double CalculateDiscountPrice(int discount, Service service)
+        private double CalculateDiscountPrice(int discount, Service service)
         {
             double dateamount = 0;
             double percentage = 0;
@@ -102,7 +102,5 @@ namespace LaskutusRyhmaMayhem
             return Math.Round(service.MPrice * Math.Floor(dateamount / 30) * percentage, 2);
         }
 
-        public Invoice()
-        { }
     }
 }
