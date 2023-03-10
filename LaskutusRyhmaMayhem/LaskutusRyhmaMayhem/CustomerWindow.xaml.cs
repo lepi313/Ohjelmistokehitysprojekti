@@ -139,8 +139,6 @@ namespace LaskutusRyhmaMayhem
             customerWindow.Close();
             var jsoncustomer = JsonSerializer.Serialize(customerList);
             File.WriteAllText("customerlist.json", jsoncustomer);
-            //var jsoninvoice = JsonSerializer.Serialize(invoiceList);
-            //File.WriteAllText("invoicelist.json", jsoninvoice);
         }
 
         private void buttonDelete_Click(object sender, RoutedEventArgs e)
