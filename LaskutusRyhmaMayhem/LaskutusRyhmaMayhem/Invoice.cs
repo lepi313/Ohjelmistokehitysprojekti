@@ -20,9 +20,27 @@ namespace LaskutusRyhmaMayhem
 
         public void SetInvoices(DateTime? invoicedate, int discount, Customer customer, Service service)
         {
-            invoiceList.Clear();
+            string jsonpath = "invoicelist.json";
+            if (File.Exists(jsonpath))
+            {
+                try
+                {
+                    var invoicestring = File.ReadAllText("invoicelist.json");
+                    var invoices = JsonSerializer.Deserialize<List<Invoice>>(invoicestring);
+                    if (invoices != null)
+                    {
+                        invoiceList.Clear();
+                        foreach (var invoice in invoices)
+                        {
+                            invoiceList.Add(invoice);
+                        }
+                    }
 
-            DateTime invdate = DateTime.Parse(invoicedate.ToString());
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
+            }
+
+                DateTime invdate = DateTime.Parse(invoicedate.ToString());
             int dateamount = 0;
             if (discount == 0)
             {

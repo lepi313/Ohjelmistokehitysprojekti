@@ -24,6 +24,7 @@ namespace LaskutusRyhmaMayhem
     public partial class CustomerWindow : Window
     {
         ObservableCollection<Customer> customerList = new ObservableCollection<Customer>();
+        ObservableCollection<Invoice> customerInvoiceList = new ObservableCollection<Invoice>();
         List<Service> serviceList = new List<Service>();
         List<string> discountList = new List<string>();
         public CustomerWindow()
@@ -130,12 +131,21 @@ namespace LaskutusRyhmaMayhem
             try
             {
                 Customer customer = customerList[listViewCustomers.SelectedIndex];
-                customerList.RemoveAt(listViewCustomers.SelectedIndex);
-                foreach (var invoiceToRemove in Invoice.invoiceList.Where(a => a.CustomerName.Name == customer.Name).ToList())
+                var invoicestring = File.ReadAllText("invoicelist.json");
+                var invoices = JsonSerializer.Deserialize<List<Invoice>>(invoicestring);
+                if (invoices != null)
                 {
-                    Invoice.invoiceList.Remove(invoiceToRemove);
+                    foreach (var invoice in invoices)
+                    {
+                        customerInvoiceList.Add(invoice);
+                    }
                 }
-                var jsoninvoice = JsonSerializer.Serialize(Invoice.invoiceList);
+                customerList.RemoveAt(listViewCustomers.SelectedIndex);
+                foreach (var invoiceToRemove in customerInvoiceList.Where(a => a.CustomerName.Name == customer.Name).ToList())
+                {
+                    customerInvoiceList.Remove(invoiceToRemove);
+                }
+                var jsoninvoice = JsonSerializer.Serialize(customerInvoiceList);
                 File.WriteAllText("invoicelist.json", jsoninvoice);
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }

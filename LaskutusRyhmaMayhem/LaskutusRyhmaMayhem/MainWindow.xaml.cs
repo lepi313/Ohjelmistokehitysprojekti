@@ -94,7 +94,7 @@ namespace LaskutusRyhmaMayhem
 
         private void buttonExit_Click(object sender, RoutedEventArgs e)
         {
-            var jsoninvoice = JsonSerializer.Serialize(Invoice.invoiceList);
+            var jsoninvoice = JsonSerializer.Serialize(mainInvoiceList);
             File.WriteAllText("invoicelist.json", jsoninvoice);
             Close();
         }

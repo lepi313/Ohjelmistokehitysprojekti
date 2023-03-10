@@ -49,11 +49,16 @@ namespace LaskutusRyhmaMayhem
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            var servicelevel = Servicelevel.Text;
-            var mprice = Double.Parse(Monthlyprice.Text);
-            Service service = new Service(mprice, servicelevel);
-            servicelist.Add(service);
-            listViewService.ItemsSource = servicelist;  
+            try
+            {
+                var servicelevel = Servicelevel.Text;
+                var mprice = Double.Parse(Monthlyprice.Text);
+                Service service = new Service(mprice, servicelevel);
+                servicelist.Add(service);
+                listViewService.ItemsSource = servicelist;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
