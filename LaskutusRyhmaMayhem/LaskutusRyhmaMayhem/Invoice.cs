@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 namespace LaskutusRyhmaMayhem
 {
     class Invoice
+
     {
+        public static List<Invoice> invoiceList = new List<Invoice>();
         public string StringInvDate { get; set; }
         public DateTime InvoiceDate { get; set; }
         public Double InvoiceSum { get; set; }
@@ -49,6 +51,19 @@ namespace LaskutusRyhmaMayhem
                 InvoiceSum = CalculateDiscountPrice(discount, service);
                 CustomerName = customer;
             }
+            invoiceList.Add(this);
+
+            for (int i = 0; i < 5; i++)
+            {
+                Invoice newinvoice = new Invoice();
+                newinvoice.InvoiceDate = InvoiceDate.AddDays(dateamount);
+                newinvoice.StringInvDate = newinvoice.InvoiceDate.ToShortDateString();
+                newinvoice.InvoiceSum = service.MPrice;
+                newinvoice.CustomerName = customer;
+                invoiceList.Add(newinvoice);
+                InvoiceDate = InvoiceDate.AddDays(30);
+            }
+
         }
 
         public double CalculateDiscountPrice(int discount, Service service)

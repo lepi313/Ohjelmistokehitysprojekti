@@ -18,7 +18,7 @@
         <ComboBox x:Name="comboBoxServiceLevel" HorizontalAlignment="Left" Height="30" Margin="27,301,0,0" VerticalAlignment="Top" Width="175"/>
         <Label x:Name="labelComboServiceLevel" Content="Palvelutaso" HorizontalAlignment="Left" Margin="27,275,0,0" VerticalAlignment="Top"/>
         <Button x:Name="buttonSave" Content="Tallenna" HorizontalAlignment="Left" Height="30" Margin="27,349,0,0" VerticalAlignment="Top" Width="80" Click="buttonSave_Click"/>
-        <Button x:Name="buttonCancel" Content="Peruuta" HorizontalAlignment="Left" Height="30" Margin="122,349,0,0" VerticalAlignment="Top" Width="80" Click="buttonCancel_Click"/>
+        <Button x:Name="buttonCancel" Content="Poistu" HorizontalAlignment="Left" Height="30" Margin="122,349,0,0" VerticalAlignment="Top" Width="80" Click="buttonCancel_Click"/>
         <ListView x:Name="listViewCustomers" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="514,0,0,0">
             <ListView.View>
                 <GridView>

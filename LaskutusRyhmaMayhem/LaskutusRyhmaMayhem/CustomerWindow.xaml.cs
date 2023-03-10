@@ -129,7 +129,8 @@ namespace LaskutusRyhmaMayhem
             Invoice invoice = new Invoice();
             invoice.SetInvoices(firstbillingdate, discount, customer, serviceList[servicelevel]);
             customerList.Add(customer);
-            invoiceList.Add(invoice);
+            var jsoninvoice = JsonSerializer.Serialize(Invoice.invoiceList);
+            File.WriteAllText("invoicelist.json", jsoninvoice);
             listViewCustomers.ItemsSource = customerList;
         }
 
@@ -138,8 +139,8 @@ namespace LaskutusRyhmaMayhem
             customerWindow.Close();
             var jsoncustomer = JsonSerializer.Serialize(customerList);
             File.WriteAllText("customerlist.json", jsoncustomer);
-            var jsoninvoice = JsonSerializer.Serialize(invoiceList);
-            File.WriteAllText("invoicelist.json", jsoninvoice);
+            //var jsoninvoice = JsonSerializer.Serialize(invoiceList);
+            //File.WriteAllText("invoicelist.json", jsoninvoice);
         }
 
         private void buttonDelete_Click(object sender, RoutedEventArgs e)
@@ -152,6 +153,7 @@ namespace LaskutusRyhmaMayhem
                 {
                     invoiceList.Remove(invoiceToRemove);
                 }
+
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
