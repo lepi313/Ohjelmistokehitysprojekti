@@ -19,6 +19,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Button x:Name="buttonPrintFile" Content="Tulosta tiedostoon" HorizontalAlignment="Left" Margin="363,10,0,0" BorderThickness="2" VerticalAlignment="Top"  Height="31" Width="116" Click="buttonPrintFile_Click"/>
+        <Button x:Name="buttonExit" Content="Poistu" HorizontalAlignment="Left" Margin="373,371,0,0" BorderThickness="2" VerticalAlignment="Top"  Height="31" Width="106" Click="buttonExit_Click"/>
     </Grid>
-    
+
 </Window>

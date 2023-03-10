@@ -67,6 +67,23 @@ namespace LaskutusRyhmaMayhem
             CustomerWindow addCustomer = new CustomerWindow();
             addCustomer.ShowDialog();
         }
+
+        private void buttonPrintFile_Click(object sender, RoutedEventArgs e)
+        {
+            var printDialog = new System.Windows.Controls.PrintDialog();
+
+            bool? result = printDialog.ShowDialog();
+
+            if (result == true)
+            {
+                printDialog.PrintVisual(listViewInvoices, "Print invoices");
+            }
+        }
+
+        private void buttonExit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
 
